@@ -5,5 +5,6 @@ export const ENDPOINTS = {
     UPLOAD: '/upload',
     ANALYZE: '/analyze',
     ASK: '/ask',
+    VOICE: '/voice',
     HEALTH: '/health'
 };
