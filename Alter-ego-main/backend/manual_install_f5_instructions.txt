@@ -1,0 +1,51 @@
+MANUAL INSTALLATION INSTRUCTIONS FOR F5-TTS (E: DRIVE)
+======================================================
+Follow these steps carefully to install F5-TTS locally on your E: drive.
+
+1. SET UP ENVIRONMENT (Open CMD or PowerShell)
+-----------------------------------------------
+We need to tell HuggingFace to download models to the E: drive to save space on C:.
+
+   setx HF_HOME "E:\huggingface_cache"
+   
+   (Restart your terminal after running this command to ensure it takes effect)
+
+2. CREATE FOLDER ON E: DRIVE
+----------------------------
+   E:
+   mkdir Project\F5-TTS
+   cd Project\F5-TTS
+
+3. DOWNLOAD/INSTALL F5-TTS
+--------------------------
+We will verify the installation by creating a virtual environment (highly recommended) or installing directly if you prefer.
+
+   git clone https://github.com/SWivid/F5-TTS.git
+   cd F5-TTS
+   
+   # Install dependencies
+   pip install -e .
+   
+   # Install PyTorch with CUDA (if you have an NVIDIA GPU, highly recommended for speed)
+   pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+   
+   (Check your CUDA version and adjust 'cu118' if needed, e.g., 'cu121')
+
+4. DOWNLOAD REFERENCE AUDIO
+---------------------------
+The backend needs a reference audio file to clone the voice from.
+I have created a helper script for you. Run this from your backend folder:
+
+   cd E:\Project\Alter-ego-main\Alter-ego-main\backend
+   python utils/download_sample_ref.py
+
+   This will save a 'ref_audio.wav' to 'backend/mock_data'.
+   You can replace this file with any 5-10 second clear wav file of the voice you want to clone!
+
+5. RESTART BACKEND
+------------------
+   Restart your backend server to pick up the new local TTS service.
+   pip install soundfile  (if not already installed)
+
+Note: THe first time you run a voice command, it might take a few minutes to download the F5-TTS model weights to E:\huggingface_cache.
+======================================================
