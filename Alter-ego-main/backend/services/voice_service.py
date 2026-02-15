@@ -13,7 +13,6 @@ for ffmpeg_path in ffmpeg_paths:
         break
 
 import whisper
-import replicate
 from pathlib import Path
 from config.settings import settings
 from middleware.logger import logger

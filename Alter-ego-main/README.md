@@ -66,6 +66,12 @@ npm run dev
 # App will open at http://localhost:3000
 ```
 
+### 3. Chrome Extension Setup
+1. Open Chrome and go to `chrome://extensions/`.
+2. Enable "Developer mode" (top right).
+3. Click "Load unpacked" and select the `extension` folder in this repository.
+4. The extension "Social Transcription Extension" should now appear in your list.
+
 ## Usage Guide
 1. **Export Data**: Go to Google Takeout, export "YouTube and YouTube Music" (specifically "history").
 2. **Upload**: Drop the `Takeout.zip` file into the app.
